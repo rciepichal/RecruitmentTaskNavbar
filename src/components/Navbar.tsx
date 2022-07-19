@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Title, NavUl, NavLi } from './styles/Nav.styles';
-
-const pages: string[] = ['Home', 'About', 'Contact'];
+import uniqid from 'uniqid';
+const pages: string[] = ['home', 'about', 'contact'];
 
 export default function Navbar() {
   return (
@@ -9,7 +9,7 @@ export default function Navbar() {
       <Title>Sticky Navbar</Title>
       <NavUl>
         {pages.map((item) => {
-          return <NavLi>{item}</NavLi>;
+          return <NavLi key={uniqid()}>{item}</NavLi>;
         })}
       </NavUl>
     </Nav>
