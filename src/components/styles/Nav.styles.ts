@@ -6,7 +6,7 @@ const color = {
   accent: '#f2df3a',
   text: '#f6f6f6',
 };
-const menuTransition = 'all 0.1s linear';
+const menuTransition = 'all 0.2s linear';
 
 export const Nav = styled.nav`
   width: 100%;
@@ -49,11 +49,25 @@ export const NavUl = styled.ul`
 `;
 export const NavLi = styled.li`
   user-select: none;
-  color: ${color.text};
   margin: 0 1rem;
   position: relative;
   text-transform: capitalize;
   transition: ${menuTransition};
+  a {
+    color: ${color.text};
+    text-decoration: none;
+  }
+  &.active {
+    transform: scale(1.1);
+    a {
+      color: ${color.accent};
+    }
+    &:hover {
+      &::before {
+        width: 0;
+      }
+    }
+  }
   &::before {
     content: '';
     position: absolute;
